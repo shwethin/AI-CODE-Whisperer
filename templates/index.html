@@ -1,0 +1,73 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="dashboard-grid">
+    <!-- Input Section -->
+    <section class="card glass-panel input-section">
+        <h2>📚 Data Input</h2>
+        <div class="tabs">
+            <button class="tab-btn active" onclick="switchTab('subjects')">Subjects</button>
+            <button class="tab-btn" onclick="switchTab('assignments')">Assignments</button>
+        </div>
+
+        <form id="subject-form" class="active-tab">
+            <div class="form-group">
+                <label>Subject Name</label>
+                <input type="text" placeholder="e.g. Mathematics" name="name" required>
+            </div>
+            <div class="form-group">
+                <label>Exam Date</label>
+                <input type="date" name="exam_date" required>
+            </div>
+            <div class="form-group">
+                <label>Difficulty (1-5)</label>
+                <input type="range" min="1" max="5" value="3" class="slider" name="difficulty">
+            </div>
+            <button type="submit" class="btn-primary">Add Subject</button>
+        </form>
+
+        <form id="assignment-form" class="hidden-tab">
+            <div class="form-group">
+                <label>Assignment Title</label>
+                <input type="text" placeholder="e.g. Algebra Homework" name="title" required>
+            </div>
+            <div class="form-group">
+                <label>Related Subject</label>
+                <select name="subject_id" id="subject-select">
+                    <!-- Populated via JS -->
+                    <option value="" disabled selected>Select Subject</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Deadline</label>
+                <input type="date" name="deadline" required>
+            </div>
+            <div class="form-group">
+                <label>Est. Hours</label>
+                <input type="number" min="0.5" step="0.5" placeholder="2.0" name="hours" required>
+            </div>
+            <button type="submit" class="btn-primary">Add Assignment</button>
+        </form>
+    </section>
+
+    <!-- Plan & Visualization Section -->
+    <section class="card glass-panel visuals-section">
+        <div class="header-row">
+            <h2>📊 Today's Plan</h2>
+            <button id="generate-btn" class="btn-secondary">Generate Plan ⚡</button>
+        </div>
+
+        <div class="chart-container">
+            <canvas id="dailyPieChart"></canvas>
+        </div>
+
+        <div class="schedule-list">
+            <h3>Recommended Schedule</h3>
+            <ul id="schedule-items">
+                <!-- Dynamic Items -->
+                <li class="empty-state">Add subjects and assignments to generate your plan.</li>
+            </ul>
+        </div>
+    </section>
+</div>
+{% endblock %}
