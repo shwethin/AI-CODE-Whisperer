@@ -16,7 +16,7 @@ This repository contains 3 web-based applications built using modern AI-assisted
 - Focus Mode: shows today + high priority tasks
 
 Developed By: Shwethin Nikesh
----
+
 
 ### 2️⃣ One Object 3D Scene
 🔗 Live Demo: (https://interactive3dshapes.lovable.app/)
