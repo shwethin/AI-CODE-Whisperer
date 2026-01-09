@@ -1,0 +1,123 @@
+# Development Journey: Intelligent Study Agent
+
+Here is a summary of the prompts and key development steps taken to build the Intelligent Study Agent.
+
+---
+
+## Phase 1: Initial Concept & Shift
+*(Note: Initial prompts focused on a Flutter conversion app, which evolved into a new project)*
+
+**User Prompt:** "create a new web application... intelligent study timetable and planner agent"
+**Action:**
+- Defined the new project scope: Python backend, HTML/JS frontend.
+- Created the initial file structure (`server.py`, `static/`, `core/`).
+- Implemented the zero-dependency Python server using `http.server`.
+
+**User Prompt:** "make it zero dependency python server"
+**Action:**
+- Ensured `server.py` used only standard libraries (`http.server`, `urllib`, `json`).
+- Removed `flask` and other external requirements from the initial plan.
+
+---
+
+## Phase 2: Core Features & UI
+
+**User Prompt:** "add a calendar view"
+**Action:**
+- Created a visual calendar in `index.html` and `script.js`.
+- Implemented logic to display assignments and exams on the calendar.
+
+**User Prompt:** "make a full year view"
+**Action:**
+- Added a "Full Year" toggle button.
+- Implemented a 12-month grid view with mini-calendars.
+- Added color-coded dots for exams (pink) and assignments (violet).
+
+**User Prompt:** "show details when clicking a day"
+**Action:**
+- Added a "Day Details" panel that appears when a date is clicked.
+- Panel lists specific exams and assignments for that day.
+
+---
+
+## Phase 3: AI Integration (Ollama)
+
+**User Prompt:** "integrate ollama usage"
+**Action:**
+- Modified `server.py` to proxy requests to a local Ollama instance.
+- created `OLLAMA_GUIDE.md` with setup instructions.
+- Implemented the "Generate Plan ⚡" button to create AI study schedules.
+
+**User Prompt:** "ollama is not working"
+**Action:**
+- Added error handling and detailed logging to `server.py`.
+- Created `OLLAMA_TROUBLESHOOTING.md`.
+- Fixed the API call logic to properly handle connection errors.
+
+---
+
+## Phase 4: Google Classroom Integration
+
+**User Prompt:** "integrate Google Classroom API"
+**Action:**
+- Created `classroom_sync.py` to handle OAuth2 authentication and API fetching.
+- Defined scopes and created `credentials.json.example`.
+- Implemented logic to convert Classroom "CourseWork" into "Assignments" with priority calculation.
+
+**User Prompt:** "making login info where the user enter the email... directly access google classroom"
+**Action:**
+- Added a "Connect Google Classroom" button and login modal in `index.html`.
+- Implemented OAuth flow in `server.py` (`/api/classroom-auth`).
+- Added logic to sync subjects and assignments automatically.
+
+**User Prompt:** "they should login before showing the main part of the website"
+**Action:**
+- Created a landing page with features and a "Get Started" button.
+- Hid the main dashboard until valid authentication (or manual bypass) occurred.
+- Used `localStorage` to persist the session.
+
+---
+
+## Phase 5: Debugging & Refinement
+
+**User Prompt:** "error 404" / "same error"
+**Action:**
+- Identified that the server wasn't restarting to pick up new routes.
+- Found a stale process holding port 8000.
+- **Fix:** Changed port to `8081` and enabled address reuse in `server.py`.
+- Updated `server.py` to correctly serve static files.
+
+**User Prompt:** "it takes so much to load check it"
+**Action:**
+- Diagnosed that the auth endpoint hung when credentials were missing.
+- **Fix:** Updated `server.py` to redirect with a clear error message instead of hanging.
+- Added a helpful alert on the frontend: "Please install Google Classroom libraries..."
+
+**User Prompt:** "credentials.json file?"
+**Action:**
+- Explained the need for Google Cloud OAuth credentials.
+- Created `GOOGLE_CLOUD_SETUP_GUIDE.md` and `QUICK_CLOUD_SETUP.md`.
+- Clarified that the app works manually without this file.
+
+---
+
+## Phase 6: Final Polish
+
+**User Prompt:** "make the entire ai agent into a folder"
+**Action:**
+- Verified the project structure was already organized in `c:\Users\albin\Desktop\ai`.
+- Created a comprehensive `README.md` documenting the entire project.
+
+**User Prompt:** "can you make it prompt textfile of the all propting i have done now so i can share to my friend"
+**Action:**
+- Created this summary file (`project_prompts_history.txt`)!
+
+---
+
+**Total Features Built:**
+1. Zero-dependency Python Web Server
+2. Interactive Calendar (Month & Year views)
+3. AI Study Planner (Ollama Integration)
+4. Google Classroom Auto-Sync
+5. Smart Priority System
+6. Premium Glassmorphism UI

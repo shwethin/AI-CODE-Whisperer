@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Study Agent | Intelligent Planner</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <div class="app-container">
+        <header class="glass-header">
+            <div class="logo">
+                <span class="icon">✨</span> Study Agent
+            </div>
+            <nav>
+                <!-- Add navigation items here if needed in the future -->
+            </nav>
+        </header>
+
+        <!-- Name/Age Entry Modal -->
+        <div id="welcome-modal" class="modal" style="display:flex;">
+            <div class="modal-content glass-panel" style="text-align:center;">
+                <div class="modal-header">
+                    <span class="hero-icon">✨</span>
+                    <h2>Welcome to Study Agent</h2>
+                    <p>Let's personalize your experience</p>
+                </div>
+                <form id="profile-form" style="margin-top:20px;">
+                    <div class="form-group">
+                        <label for="user-name" style="display:block; margin-bottom:5px;">What's your name?</label>
+                        <input type="text" id="user-name" placeholder="e.g. Alex" required autofocus
+                            style="width:100%; padding:10px; border-radius:8px; border:1px solid #ccc; margin-bottom:15px;">
+                    </div>
+                    <div class="form-group">
+                        <label for="user-age" style="display:block; margin-bottom:5px;">How old are you?</label>
+                        <input type="number" id="user-age" placeholder="e.g. 18" min="5" max="100" required
+                            style="width:100%; padding:10px; border-radius:8px; border:1px solid #ccc; margin-bottom:15px;">
+                    </div>
+                    <button type="submit" class="btn-primary full-width" style="width:100%; padding:12px;">Start
+                        Planning 🚀</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Main Dashboard -->
+        <div id="main-dashboard" class="hidden">
+            <main class="content-area">
+                <div class="welcome-banner">
+                    <h2 id="welcome-message">Welcome, Student! 👋</h2>
+                </div>
+                <div class="dashboard-grid">
+                    <!-- Input Section -->
+                    <section class="card glass-panel input-section">
+                        <h2>📚 Data Input</h2>
+                        <div class="tabs">
+                            <button class="tab-btn active" onclick="switchTab('subjects')">Subjects</button>
+                            <button class="tab-btn" onclick="switchTab('assignments')">Assignments</button>
+                        </div>
+
+                        <form id="subject-form" class="active-tab">
+                            <div class="form-group">
+                                <label>Subject Name</label>
+                                <input type="text" placeholder="e.g. Mathematics" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Exam Date</label>
+                                <input type="date" name="exam_date" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Difficulty (1-5)</label>
+                                <input type="range" min="1" max="5" value="3" class="slider" name="difficulty">
+                            </div>
+                            <button type="submit" class="btn-primary">Add Subject</button>
+
+                            <div class="data-list">
+                                <h3>My Subjects</h3>
+                                <ul id="subjects-list-ul">
+                                    <!-- Populated by JS -->
+                                </ul>
+                            </div>
+                        </form>
+
+                        <form id="assignment-form" class="hidden-tab">
+                            <div class="form-group">
+                                <label>Assignment Title</label>
+                                <input type="text" placeholder="e.g. Algebra Homework" name="title" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Related Subject</label>
+                                <select name="subject_id" id="subject-select">
+                                    <option value="" disabled selected>Select Subject</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Deadline</label>
+                                <input type="date" name="deadline" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Est. Hours</label>
+                                <input type="number" min="0.5" step="0.5" placeholder="2.0" name="hours" required>
+                            </div>
+                            <button type="submit" class="btn-primary">Add Assignment</button>
+
+                            <div class="data-list">
+                                <h3>My Assignments</h3>
+                                <ul id="assignments-list-ul">
+                                    <!-- Populated by JS -->
+                                </ul>
+                            </div>
+                        </form>
+                    </section>
+
+                    <!-- Calendar Section (Display Only) -->
+                    <section class="card glass-panel calendar-section">
+                        <h2>📅 Event Calendar</h2>
+                        <div class="calendar-header">
+                            <button id="prev-month">&lt;</button>
+                            <h3 id="current-month-year">January 2026</h3>
+                            <button id="next-month">&gt;</button>
+                            <button id="full-year-btn" class="btn-sm">Full Year</button>
+                        </div>
+                        <div class="calendar-grid" id="calendar-grid">
+                            <!-- Days generated by JS -->
+                        </div>
+                        <div id="full-year-view" class="hidden-tab full-year-grid">
+                            <!-- 12 Months generated by JS -->
+                        </div>
+                        <div class="calendar-legend">
+                            <span class="dot-exam"></span> Exam
+                            <span class="dot-assign"></span> Assignment
+                        </div>
+
+                        <div id="calendar-day-details" class="day-details-panel" style="display:none;">
+                            <h3 id="selected-date-title">Select a date</h3>
+                            <div id="selected-date-content"></div>
+                        </div>
+                    </section>
+
+                    <!-- Plan & Visualization Section -->
+                    <section class="card glass-panel visuals-section">
+                        <div class="header-row">
+                            <h2>📊 AI Study Planner</h2>
+                            <button id="generate-btn" class="btn-secondary">Generate Plan ⚡</button>
+                        </div>
+
+                        <div id="loading-indicator" style="display:none; text-align:center; color: #94a3b8;">
+                            <p>Ai is thinking...</p>
+                        </div>
+
+                        <div class="schedule-list">
+                            <h3>Recommended Plan</h3>
+                            <div id="ai-plan-output" style="white-space: pre-wrap; line-height: 1.6;">
+                                Add assignments and click Generate to see your AI plan.
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </main>
+        </div><!-- End main-dashboard -->
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

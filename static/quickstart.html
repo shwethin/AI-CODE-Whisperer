@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Quick Start - Study Agent</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #0f172a;
+            color: #e2e8f0;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        h1 {
+            color: #8b5cf6;
+        }
+
+        h2 {
+            color: #ec4899;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background: linear-gradient(135deg, #8b5cf6, #ec4899);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            margin: 10px 5px;
+        }
+
+        .btn:hover {
+            opacity: 0.9;
+        }
+
+        code {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>🎓 Study Agent - Quick Start</h1>
+
+    <div class="card">
+        <h2>✅ Option 1: Use Without Google Classroom (Works Now!)</h2>
+        <p>You can use the app immediately without any setup:</p>
+        <ol>
+            <li>Click the button below to go to the app</li>
+            <li>Close any login modals (click Cancel or X)</li>
+            <li>Use the <strong>Subjects</strong> and <strong>Assignments</strong> tabs to add your data manually</li>
+            <li>View everything in the <strong>Calendar</strong></li>
+        </ol>
+        <a href="/" class="btn">🚀 Open Study Agent</a>
+    </div>
+
+    <div class="card">
+        <h2>⏳ Option 2: Set Up Google Classroom (Advanced)</h2>
+        <p>To enable auto-sync from Google Classroom, you need:</p>
+        <ol>
+            <li>Install Python libraries: <code>pip install -r requirements.txt</code></li>
+            <li>Create a Google Cloud Project</li>
+            <li>Enable Google Classroom API</li>
+            <li>Download OAuth credentials as <code>credentials.json</code></li>
+            <li>Place <code>credentials.json</code> in the <code>ai</code> folder</li>
+        </ol>
+        <p><strong>Full instructions:</strong> See <code>CLASSROOM_SETUP.md</code> in your project folder</p>
+        <p><strong>Time required:</strong> ~15 minutes</p>
+    </div>
+
+    <div class="card">
+        <h2>📝 Current Status</h2>
+        <p>✅ Server running on port 8081</p>
+        <p>✅ Manual entry works perfectly</p>
+        <p>✅ Calendar visualization ready</p>
+        <p>✅ Priority system active</p>
+        <p>❌ Google Classroom (needs credentials.json)</p>
+        <p>⏳ Ollama AI (needs <code>ollama serve</code>)</p>
+    </div>
+
+    <div class="card">
+        <h2>🎯 Recommended: Start Using Now!</h2>
+        <p>Don't wait for Google Classroom setup. You can:</p>
+        <ul>
+            <li>Add your subjects and assignments manually (takes 2 minutes)</li>
+            <li>See them in the beautiful calendar view</li>
+            <li>Get priority tags automatically</li>
+            <li>Set up Google Classroom later if you want</li>
+        </ul>
+        <a href="/" class="btn">🎓 Start Using the App</a>
+    </div>
+</body>
+
+</html>

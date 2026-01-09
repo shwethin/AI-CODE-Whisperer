@@ -1,0 +1,12 @@
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+.git
+.gitignore
+*.md
+.vscode
+.idea
+*.log
+OLLAMA_GUIDE.md
+DEPLOYMENT_GUIDE.md
