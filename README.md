@@ -1,8 +1,10 @@
 # AI-CODE-WHISPERER
 
+Projects and solutions developed for AI Code Whisperer, showcasing how AI can be used as a coding partner through effective prompting, debugging, and iterative problem-solving.
+
 # 🚀 My Web Apps Collection
 
-This repository contains 3 web-based applications built using modern AI-assisted development tools.
+This repository contains 3 web-based applications built using modern AI-assisted development tools by Team:3bugged
 
 ## 🧠 Apps Included
 
@@ -13,6 +15,7 @@ This repository contains 3 web-based applications built using modern AI-assisted
 - Auto-assigns task categories
 - Focus Mode: shows today + high priority tasks
 
+Developed By: Shwethin Nikesh
 ---
 
 ### 2️⃣ One Object 3D Scene
@@ -20,7 +23,7 @@ This repository contains 3 web-based applications built using modern AI-assisted
 
 -Interactive 3D Shapes is a visually engaging app that helps you understand 3D geometry through real-time interaction. Users can rotate, zoom, and explore different shapes to clearly see their structure, faces, edges, and dimensions. Designed for easy learning and quick understanding, the app makes complex 3D concepts simple, intuitive, and fun
 
-
+Developed By: Steve Ipe
 
 ---
 
@@ -29,7 +32,7 @@ This repository contains 3 web-based applications built using modern AI-assisted
 
 AI Travel Agent is a multi-agent AI system designed to create realistic, cost-controlled travel itineraries. A dedicated Researcher Agent gathers factual travel data such as transport, accommodation, activities, and food costs, while a Planner Agent organizes this information into a day-wise itinerary with enforced budget and time constraints. The platform provides live cost breakdowns tailored to user-selected travel tiers—budget, mid-range, or luxury—and automatically replans trips if costs exceed tier limits, ensuring financial feasibility and logical trip structure.
 
----
+Developed By: Talaha
 
 ## 🛠 Tech Stack
 - HTML / CSS / JavaScript
