@@ -34,12 +34,12 @@ AI Travel Agent is a multi-agent AI system designed to create realistic, cost-co
 
 Developed By: Talaha
 
-#⚙️ Technical Details
+# ⚙️ Technical Details
 
 The application was built as a web-based system using HTML, CSS, and JavaScript for the frontend, ensuring a responsive and modular user interface. The core problem-solving logic was developed with AI assistance from Lovable, which helped in generating, refining, and debugging code efficiently.
 The architecture follows a lightweight client-side execution model, enabling fast response times with minimal network overhead. Throughout development, AI tools were used to optimize control flow, handle edge cases, and improve code readability, while final logic and outputs were validated manually.
 
-#🧠 Problem-Solving Approach
+# 🧠 Problem-Solving Approach
 
 We began by splitting the three problem statements among the three team members, enabling parallel development and faster iteration. Each member explored AI-assisted development using VSCode copilot and Lovable to generate solutions, debug errors, and refine logic.
 
