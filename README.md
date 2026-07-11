@@ -28,7 +28,7 @@ Developed By: Steve Ipe
 ---
 
 ### 3️⃣ AI Travel Agent
-🔗 Live Demo: (https://ai-travel-agent-tier-gs7v.bolt.host/)   
+🔗 Live Demo: (https://ai-travel-agent-webs-5tiz.bolt.host/)   
 
 AI Travel Agent is a multi-agent AI system designed to create realistic, cost-controlled travel itineraries. A dedicated Researcher Agent gathers factual travel data such as transport, accommodation, activities, and food costs, while a Planner Agent organizes this information into a day-wise itinerary with enforced budget and time constraints. The platform provides live cost breakdowns tailored to user-selected travel tiers—budget, mid-range, or luxury—and automatically replans trips if costs exceed tier limits, ensuring financial feasibility and logical trip structure.
 
